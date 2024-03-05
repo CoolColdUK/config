@@ -11,8 +11,16 @@
     "config"
   ],
   "devDependencies": {
+    "@coolcolduk/prettier-config": "latest",
     "lerna": "^8.1.2"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "package.json": "prettier-package-json --write"
+  },
+  "prettier": "@algo/prettier-config",
   "author": "CoolColdUK",
   "license": "MIT"
 }
