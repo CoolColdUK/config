@@ -16,12 +16,42 @@ jobs:
         node-version: "20"
     - name: Install
       run: npm ci
+
     - uses: JS-DevTools/npm-publish@v3.0.1
-      id: publish
+      id: eslint
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
-        package: "./packages"
-    - run: echo ${{ steps.publish.outputs.id }}
+        package: "./packages/eslint-config"
+    - run: echo ${{ steps.eslint.outputs.id }}
+
+    - uses: JS-DevTools/npm-publish@v3.0.1
+      id: react
+      with:
+        token: ${{ secrets.NPM_AUTH_TOKEN }}
+        package: "./packages/eslint-config-react"
+    - run: echo ${{ steps.react.outputs.id }}
+    
+    - uses: JS-DevTools/npm-publish@v3.0.1
+      id: jest
+      with:
+        token: ${{ secrets.NPM_AUTH_TOKEN }}
+        package: "./packages/jest-config"
+    - run: echo ${{ steps.jest.outputs.id }}
+
+    - uses: JS-DevTools/npm-publish@v3.0.1
+      id: prettier
+      with:
+        token: ${{ secrets.NPM_AUTH_TOKEN }}
+        package: "./packages/prettier-config"
+    - run: echo ${{ steps.prettier.outputs.id }}
+    
+    - uses: JS-DevTools/npm-publish@v3.0.1
+      id: ts
+      with:
+        token: ${{ secrets.NPM_AUTH_TOKEN }}
+        package: "./packages/ts-config"
+    - run: echo ${{ steps.ts.outputs.id }}
+
     # - name: Publish if version has been updated
     #   uses: wtrocki/npm-publish-monorepo-action@2.0.0
     #   with: 
