@@ -22,6 +22,7 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: "./packages/eslint-config"
+        access: public
     - run: echo ${{ steps.eslint.outputs.id }}
 
     - uses: JS-DevTools/npm-publish@v3.0.1
@@ -29,6 +30,7 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: "./packages/eslint-config-react"
+        access: public
     - run: echo ${{ steps.react.outputs.id }}
     
     - uses: JS-DevTools/npm-publish@v3.0.1
@@ -36,6 +38,7 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: "./packages/jest-config"
+        access: public
     - run: echo ${{ steps.jest.outputs.id }}
 
     - uses: JS-DevTools/npm-publish@v3.0.1
@@ -43,6 +46,7 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: "./packages/prettier-config"
+        access: public
     - run: echo ${{ steps.prettier.outputs.id }}
     
     - uses: JS-DevTools/npm-publish@v3.0.1
@@ -50,6 +54,7 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         package: "./packages/ts-config"
+        access: public
     - run: echo ${{ steps.ts.outputs.id }}
 
     # - name: Publish if version has been updated
