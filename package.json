@@ -1,0 +1,17 @@
+{
+  "name": "config",
+  "version": "1.0.0",
+  "description": "config monorepo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "config"
+  ],
+  "devDependencies": {
+    "lerna": "^8.1.2"
+  },
+  "author": "CoolColdUK",
+  "license": "MIT"
+}
