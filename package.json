@@ -2,25 +2,26 @@
   "name": "config",
   "version": "1.0.0",
   "description": "config monorepo",
+  "license": "MIT",
+  "author": "CoolColdUK",
   "main": "index.js",
   "scripts": {
     "pack": "lerna run pack",
+    "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "config"
-  ],
   "devDependencies": {
     "@coolcolduk/prettier-config": "latest",
     "lerna": "^8.1.2"
   },
+  "keywords": [
+    "config"
+  ],
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write --ignore-unknown"
     ],
     "package.json": "prettier-package-json --write"
   },
-  "prettier": "@algo/prettier-config",
-  "author": "CoolColdUK",
-  "license": "MIT"
+  "prettier": "@algo/prettier-config"
 }
