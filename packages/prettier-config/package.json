@@ -1,0 +1,16 @@
+{
+  "name": "@coolcolduk/prettier-config",
+  "version": "1.0.0",
+  "description": "Prettier config with packages",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "exit 0"
+  },
+  "dependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-package-json": "^2.8.0"
+  }
+}
