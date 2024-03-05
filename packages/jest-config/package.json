@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Jest config with packages",
   "license": "MIT",
+  "author": "SikSo <coolcold@gmail.com>",
   "main": "jest-preset.js",
   "files": [
     "jest-preset.js"
   ],
   "scripts": {
     "lint": "exit 0",
-    "pack": "npm pack --pack-destination=../"
+    "pack": "npm pack --pack-destination=../../packages/functions/src/packages"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",

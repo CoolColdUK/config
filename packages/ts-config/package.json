@@ -5,7 +5,8 @@
   "license": "MIT",
   "main": "tsconfig.json",
   "files": [
-    "tsconfig.json"
+    "tsconfig.json",
+    "README.md"
   ],
   "scripts": {
     "lint": "exit 0",
