@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@coolcolduk/prettier-config": "latest",
-    "lerna": "^8.1.2"
+    "lerna": "^8.1.9"
   },
   "keywords": [
     "config"
@@ -23,5 +23,5 @@
     ],
     "package.json": "prettier-package-json --write"
   },
-  "prettier": "@algo/prettier-config"
+  "prettier": "@coolcolduk/prettier-config"
 }

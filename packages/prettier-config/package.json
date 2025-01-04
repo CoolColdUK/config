@@ -13,9 +13,9 @@
     "pack": "npm pack --pack-destination=../"
   },
   "dependencies": {
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
     "prettier-package-json": "^2.8.0"
   }
 }
