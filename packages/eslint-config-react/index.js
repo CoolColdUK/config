@@ -38,6 +38,16 @@ module.exports = {
     // 'import/no-unresolved': 'off', //disabled as airbnb has no absolute import which takes more effort to disable
     // 'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.*",
+          "**/.storybook/**/*.*"
+        ],
+        "peerDependencies": true
+      }
+    ],
     // 'import/extensions': 'off',
     // 'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
     // 'no-shadow': 'off',
