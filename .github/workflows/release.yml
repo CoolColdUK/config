@@ -85,8 +85,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: npm i
-      - name: Build
-        run: npm run ci:build
+      # - name: Build
+      #   run: npm run ci:build
       - name: bump patch
         if: inputs.version=='patch'
         run: npm run release:patch
