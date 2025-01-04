@@ -1,6 +1,6 @@
 {
   "name": "@coolcolduk/eslint-config",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "EsLint config with packages",
   "license": "MIT",
   "main": "index.js",
