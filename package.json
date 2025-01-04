@@ -8,6 +8,9 @@
   "scripts": {
     "pack": "lerna run pack",
     "prepare": "husky",
+    "release:major": "lerna version major -y",
+    "release:minor": "lerna version minor -y",
+    "release:patch": "lerna version patch -y",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
