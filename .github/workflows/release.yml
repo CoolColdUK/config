@@ -134,37 +134,41 @@ jobs:
             ./packages/*.tgz
 
       - uses: JS-DevTools/npm-publish@v3.0.1
-        id: typescript-util
+        id: eslint
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
-          package: './packages/typescript-util'
+          package: './packages/eslint-config'
           access: public
-      - run: echo ${{ steps.typescript-util.outputs.id }}
+      - run: echo ${{ steps.eslint.outputs.id }}
 
       - uses: JS-DevTools/npm-publish@v3.0.1
-        id: util
+        id: react
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
-          package: './packages/util'
+          package: './packages/eslint-config-react'
           access: public
-      - run: echo ${{ steps.util.outputs.id }}
+      - run: echo ${{ steps.react.outputs.id }}
 
       - uses: JS-DevTools/npm-publish@v3.0.1
-        id: tools
+        id: jest
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
-          package: './packages/tools'
+          package: './packages/jest-config'
           access: public
-      - run: echo ${{ steps.tools.outputs.id }}
+      - run: echo ${{ steps.jest.outputs.id }}
 
-      # - uses: CoolColdUK/github-script@v7
-      #   if: github.event_name != 'workflow_dispatch'
-      #   with:
-      #     github-token: ${{secrets.GITHUB_TOKEN}}
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: '🎉 Release https://github.com/${{ github.repository }}/releases/tag/v${{ env.PACKAGE_VERSION }}'
-      #       })
+      - uses: JS-DevTools/npm-publish@v3.0.1
+        id: prettier
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/prettier-config'
+          access: public
+      - run: echo ${{ steps.prettier.outputs.id }}
+
+      - uses: JS-DevTools/npm-publish@v3.0.1
+        id: ts
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/ts-config'
+          access: public
+      - run: echo ${{ steps.ts.outputs.id }}
