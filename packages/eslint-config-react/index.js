@@ -42,6 +42,8 @@ module.exports = {
       "error",
       {
         "devDependencies": [
+          "**/*.test.*",
+          "**/*.spec.*",
           "**/*.stories.*",
           "**/.storybook/**/*.*"
         ],
