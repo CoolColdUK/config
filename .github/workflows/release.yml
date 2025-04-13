@@ -78,6 +78,8 @@ jobs:
         uses: CoolColdUK/setup-node@v4
         with:
           node-version: 20
+          registry-url: 'https://npm.pkg.github.com' # [EXAMPLE]
+          always-auth: true
           # registry-url: 'https://npm.pkg.github.com' # [EXAMPLE]
           # for publishing packages to npm
           # registry-url: https://registry.npmjs.org
@@ -138,42 +140,52 @@ jobs:
           files: |
             ./packages/*.tgz
 
-      - uses: JS-DevTools/npm-publish@v3.0.1
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: eslint
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           package: './packages/eslint-config'
-          access: public
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.eslint.outputs.id }}
 
-      - uses: JS-DevTools/npm-publish@v3.0.1
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: react
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           package: './packages/eslint-config-react'
-          access: public
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.react.outputs.id }}
 
-      - uses: JS-DevTools/npm-publish@v3.0.1
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: jest
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           package: './packages/jest-config'
-          access: public
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.jest.outputs.id }}
 
-      - uses: JS-DevTools/npm-publish@v3.0.1
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: prettier
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           package: './packages/prettier-config'
-          access: public
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.prettier.outputs.id }}
 
-      - uses: JS-DevTools/npm-publish@v3.0.1
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: ts
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           package: './packages/ts-config'
-          access: public
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.ts.outputs.id }}
