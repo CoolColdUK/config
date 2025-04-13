@@ -148,7 +148,7 @@ jobs:
           package: './packages/eslint-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - run: echo ${{ steps.eslint.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -158,7 +158,7 @@ jobs:
           package: './packages/eslint-config-react'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - run: echo ${{ steps.react.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -168,7 +168,7 @@ jobs:
           package: './packages/jest-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - run: echo ${{ steps.jest.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -178,7 +178,7 @@ jobs:
           package: './packages/prettier-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - run: echo ${{ steps.prettier.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -188,5 +188,5 @@ jobs:
           package: './packages/ts-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - run: echo ${{ steps.ts.outputs.id }}
