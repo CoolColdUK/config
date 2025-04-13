@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@coolcolduk/prettier-config": "latest",
-    "lerna": "^8.1.9"
+    "lerna": "^8.2.2"
   },
   "keywords": [
     "config"
