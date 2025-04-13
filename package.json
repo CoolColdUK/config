@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@coolcolduk/prettier-config": "latest",
+    "@coolcolduk/prettier-config": "^1.5.1",
     "lerna": "^8.2.2"
   },
   "keywords": [
