@@ -81,9 +81,10 @@ jobs:
           node-version: 20
           registry-url: 'https://npm.pkg.github.com' # [EXAMPLE]
           always-auth: true
-          # registry-url: 'https://npm.pkg.github.com' # [EXAMPLE]
-          # for publishing packages to npm
-          # registry-url: https://registry.npmjs.org
+          # actions/setup-node create .npmrc with `NODE_AUTH_TOKEN` env if `registry-url` is defined
+          # === `echo "${ registry-url }/:_authToken=${ NODE_AUTH_TOKEN }" > .npmrc`
+      # - name: Authenticate with private NPM package
+      #   run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
       - name: Git Identity
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -93,6 +94,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: npm i
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Build
       #   run: npm run ci:build
       - name: bump patch
@@ -144,49 +147,49 @@ jobs:
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: eslint
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/eslint-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.eslint.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: react
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/eslint-config-react'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.react.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: jest
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/jest-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.jest.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: prettier
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/prettier-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.prettier.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: ts
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/ts-config'
           registry: 'https://npm.pkg.github.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.ts.outputs.id }}
