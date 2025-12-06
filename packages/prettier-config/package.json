@@ -1,6 +1,6 @@
 {
   "name": "@coolcolduk/prettier-config",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Prettier config with packages",
   "license": "MIT",
   "main": "index.js",
