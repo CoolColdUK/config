@@ -13,15 +13,7 @@ const globals = require('globals');
 
 module.exports = [
   {
-    ignores: [
-      '**/__generated__/*.ts',
-      '.eslintrc.js',
-      'dist',
-      '/*.*',
-      'node_modules/**',
-      'build/**',
-      'coverage/**',
-    ],
+    ignores: ['**/__generated__/*.ts', '.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
@@ -47,36 +39,25 @@ module.exports = [
     },
     rules: {
       // TypeScript ESLint recommended rules
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
-      ],
-      '@typescript-eslint/dot-notation': [
-        'warn',
-        { allowIndexSignaturePropertyAccess: true },
-      ],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_', varsIgnorePattern: '^_'}],
+      '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
 
       // Import rules (Airbnb-style)
       'import/prefer-default-export': 'off',
-      'import/no-cycle': [2, { ignoreExternal: true }],
+      'import/no-cycle': [2, {ignoreExternal: true}],
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: [
-            '**/*.test.*',
-            '**/*.spec.*',
-            '**/jest.config.*',
-            '**/vite.config.*',
-          ],
+          devDependencies: ['**/*.test.*', '**/*.spec.*', '**/jest.config.*', '**/vite.config.*'],
         },
       ],
 
       // General rules (Airbnb-style)
       'no-console': 'warn',
-      'no-await-in-loop': 'warn',
+      'no-await-in-loop': 'off',
       'class-methods-use-this': 'warn',
       'no-unused-vars': 'off', // Use TypeScript version instead
 
@@ -96,4 +77,3 @@ module.exports = [
     },
   },
 ];
-

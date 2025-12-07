@@ -15,14 +15,7 @@ const globals = require('globals');
 
 module.exports = [
   {
-    ignores: [
-      '.eslintrc.js',
-      'dist',
-      '/*.*',
-      'node_modules/**',
-      'build/**',
-      'coverage/**',
-    ],
+    ignores: ['.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
@@ -59,12 +52,9 @@ module.exports = [
           ignoreRestSiblings: true,
         },
       ],
-      '@typescript-eslint/dot-notation': [
-        'warn',
-        { allowIndexSignaturePropertyAccess: true },
-      ],
+      '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
       '@typescript-eslint/no-use-before-define': ['error'],
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
 
@@ -77,7 +67,7 @@ module.exports = [
       ],
       'react/react-in-jsx-scope': 'off',
       'react/require-default-props': 'off',
-      'react/jsx-no-duplicate-props': ['warn', { ignoreCase: false }],
+      'react/jsx-no-duplicate-props': ['warn', {ignoreCase: false}],
       'react/prop-types': 'off', // Using TypeScript for prop validation
       'react/jsx-uses-react': 'off',
       'react/jsx-uses-vars': 'error',
@@ -101,19 +91,14 @@ module.exports = [
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: [
-            '**/*.test.*',
-            '**/*.spec.*',
-            '**/*.stories.*',
-            '**/.storybook/**/*.*',
-          ],
+          devDependencies: ['**/*.test.*', '**/*.spec.*', '**/*.stories.*', '**/.storybook/**/*.*'],
           peerDependencies: true,
         },
       ],
 
       // General rules (Airbnb-style)
       'no-console': 'warn',
-      'no-await-in-loop': 'warn',
+      'no-await-in-loop': 'off',
       'no-unused-vars': 'off', // Use TypeScript version instead
 
       // Prettier integration (must be last)
@@ -135,4 +120,3 @@ module.exports = [
     },
   },
 ];
-

@@ -21,11 +21,12 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'no-console': 'warn',
-    'no-await-in-loop': 'warn',
+    'no-await-in-loop': 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true},
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
     // 'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],

@@ -29,9 +29,10 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'no-console': 'warn',
-    'no-await-in-loop': 'warn',
+    'no-await-in-loop': 'off',
     'class-methods-use-this': 'warn',
-    '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_'}],
+    '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_', varsIgnorePattern: '^_'}],
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
     'import/no-cycle': [2, {ignoreExternal: true}], // can disable due to high computational cost
   },
