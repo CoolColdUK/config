@@ -17,8 +17,9 @@ export default [
   {
     ignores: ['.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
+  // ESM configuration (for .js, .jsx, .mjs, .ts, .tsx files)
   {
-    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    files: ['**/*.{js,jsx,mjs,ts,tsx}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -115,7 +116,110 @@ export default [
         },
         node: {
           paths: ['src'],
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
+        },
+      },
+    },
+  },
+  // CommonJS configuration (for .cjs files)
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'script',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.jest,
+        ...globals.es2021,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+      import: importPlugin,
+      'jsx-a11y': jsxA11yPlugin,
+    },
+    rules: {
+      // TypeScript ESLint rules
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+      '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
+      '@typescript-eslint/no-use-before-define': ['error'],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+      // React rules
+      'react/jsx-filename-extension': [
+        1,
+        {
+          extensions: ['.tsx', '.jsx'],
+        },
+      ],
+      'react/react-in-jsx-scope': 'off',
+      'react/require-default-props': 'off',
+      'react/jsx-no-duplicate-props': ['warn', {ignoreCase: false}],
+      'react/prop-types': 'off', // Using TypeScript for prop validation
+      'react/jsx-uses-react': 'off',
+      'react/jsx-uses-vars': 'error',
+
+      // React Hooks rules
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // JSX A11y rules (key accessibility rules)
+      'jsx-a11y/alt-text': 'warn',
+      'jsx-a11y/anchor-has-content': 'warn',
+      'jsx-a11y/anchor-is-valid': 'warn',
+      'jsx-a11y/aria-props': 'warn',
+      'jsx-a11y/aria-proptypes': 'warn',
+      'jsx-a11y/aria-unsupported-elements': 'warn',
+      'jsx-a11y/role-has-required-aria-props': 'warn',
+      'jsx-a11y/role-supports-aria-props': 'warn',
+
+      // Import rules (Airbnb-style)
+      'import/prefer-default-export': 'off',
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: ['**/*.test.*', '**/*.spec.*', '**/*.stories.*', '**/.storybook/**/*.*'],
+          peerDependencies: true,
+        },
+      ],
+
+      // General rules (Airbnb-style)
+      'no-console': 'warn',
+      'no-await-in-loop': 'off',
+      'no-unused-vars': 'off', // Use TypeScript version instead
+
+      // Prettier integration (must be last)
+      ...prettierConfig.rules,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: {
+          paths: ['src'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.cjs'],
         },
       },
     },

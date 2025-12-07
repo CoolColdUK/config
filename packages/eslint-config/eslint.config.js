@@ -15,8 +15,9 @@ export default [
   {
     ignores: ['**/__generated__/*.ts', '.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
+  // ESM configuration (for .js, .mjs, .ts files)
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
+    files: ['**/*.{js,mjs,ts}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -39,7 +40,10 @@ export default [
     },
     rules: {
       // TypeScript ESLint recommended rules
-      '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_'}],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_'},
+      ],
       '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
@@ -71,7 +75,71 @@ export default [
         },
         node: {
           paths: ['src'],
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
+        },
+      },
+    },
+  },
+  // CommonJS configuration (for .cjs files)
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'script',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+        ...globals.es2021,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': typescriptEslint,
+      import: importPlugin,
+    },
+    rules: {
+      // TypeScript ESLint recommended rules
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_'},
+      ],
+      '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+      // Import rules (Airbnb-style)
+      'import/prefer-default-export': 'off',
+      'import/no-cycle': [2, {ignoreExternal: true}],
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: ['**/*.test.*', '**/*.spec.*', '**/jest.config.*', '**/vite.config.*'],
+        },
+      ],
+
+      // General rules (Airbnb-style)
+      'no-console': 'warn',
+      'no-await-in-loop': 'off',
+      'class-methods-use-this': 'warn',
+      'no-unused-vars': 'off', // Use TypeScript version instead
+
+      // Prettier integration (must be last)
+      ...prettierConfig.rules,
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        node: {
+          paths: ['src'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.cjs'],
         },
       },
     },
