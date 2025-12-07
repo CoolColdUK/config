@@ -1,6 +1,6 @@
 {
   "name": "@coolcolduk/jest-config",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Jest config with packages",
   "license": "MIT",
   "author": "SikSo <coolcold@gmail.com>",
