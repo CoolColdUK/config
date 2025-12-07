@@ -5,14 +5,13 @@
  * @see https://stackoverflow.com/q/61963749/7058536
  */
 
-const typescriptEslint = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
-const importPlugin = require('eslint-plugin-import');
-const prettierConfig = require('eslint-config-prettier');
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
+import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
-module.exports = async () => {
-  const globals = await import('globals');
-  return [
+export default [
   {
     ignores: ['**/__generated__/*.ts', '.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
@@ -29,9 +28,9 @@ module.exports = async () => {
         project: './tsconfig.json',
       },
       globals: {
-        ...globals.default.node,
-        ...globals.default.jest,
-        ...globals.default.es2021,
+        ...globals.node,
+        ...globals.jest,
+        ...globals.es2021,
       },
     },
     plugins: {
@@ -77,5 +76,4 @@ module.exports = async () => {
       },
     },
   },
-  ];
-};
+];

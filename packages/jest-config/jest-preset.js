@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   preset: 'ts-jest',
   // rootDir: './src',
   testEnvironment: 'node',
@@ -11,7 +11,13 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   modulePathIgnorePatterns: ['<rootDir>/endpoints'],
   transform: {
-    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    '^.+\\.(ts|tsx)?$': [
+      'ts-jest',
+      {
+        useESM: true,
+      },
+    ],
   },
+  extensionsToTreatAsEsm: ['.ts'],
   // testRegex: '.test.ts$',
 };

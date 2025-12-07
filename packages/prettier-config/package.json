@@ -3,6 +3,7 @@
   "version": "4.2.0",
   "description": "Prettier config with packages",
   "license": "MIT",
+  "type": "module",
   "main": "index.js",
   "files": [
     "index.js",

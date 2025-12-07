@@ -9,20 +9,20 @@ This is ESLint v9 flat config for Node.js projects. It has the latest version of
 Create an `eslint.config.js` file in your project root:
 
 ```js
-const baseConfig = require('@coolcolduk/eslint-config');
+import baseConfig from '@coolcolduk/eslint-config';
 
-module.exports = [
+export default [
   ...baseConfig,
   // Add your project-specific overrides here if needed
 ];
 ```
 
-Or if you're using ES modules:
+Or if you're using CommonJS (legacy):
 
 ```js
-import baseConfig from '@coolcolduk/eslint-config';
+const baseConfig = require('@coolcolduk/eslint-config');
 
-export default [
+module.exports = [
   ...baseConfig,
   // Add your project-specific overrides here if needed
 ];

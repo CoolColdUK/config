@@ -3,9 +3,10 @@
   "version": "4.2.0",
   "description": "EsLint config for react",
   "license": "MIT",
+  "type": "module",
   "main": "eslint.config.js",
   "files": [
-    "index.js"
+    "eslint.config.js"
   ],
   "scripts": {
     "lint": "exit 0",

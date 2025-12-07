@@ -9,20 +9,20 @@ This is ESLint v9 flat config for React projects. It has the latest version of p
 Create an `eslint.config.js` file in your project root:
 
 ```js
-const reactConfig = require('@coolcolduk/eslint-config-react');
+import reactConfig from '@coolcolduk/eslint-config-react';
 
-module.exports = [
+export default [
   ...reactConfig,
   // Add your project-specific overrides here if needed
 ];
 ```
 
-Or if you're using ES modules:
+Or if you're using CommonJS (legacy):
 
 ```js
-import reactConfig from '@coolcolduk/eslint-config-react';
+const reactConfig = require('@coolcolduk/eslint-config-react');
 
-export default [
+module.exports = [
   ...reactConfig,
   // Add your project-specific overrides here if needed
 ];

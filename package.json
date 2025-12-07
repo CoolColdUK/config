@@ -4,6 +4,7 @@
   "description": "config monorepo",
   "license": "MIT",
   "author": "CoolColdUK",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "pack": "lerna run pack",
