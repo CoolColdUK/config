@@ -40,7 +40,7 @@ module.exports = async () => {
     },
     rules: {
       // TypeScript ESLint recommended rules
-      '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_', varsIgnorePattern: '^_'}],
+      '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_'}],
       '@typescript-eslint/dot-notation': ['warn', {allowIndexSignaturePropertyAccess: true}],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
