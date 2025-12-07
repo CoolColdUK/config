@@ -1,6 +1,6 @@
 {
   "name": "@coolcolduk/ts-config",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "description": "Typescript config with packages",
   "license": "MIT",
   "main": "tsconfig.json",
