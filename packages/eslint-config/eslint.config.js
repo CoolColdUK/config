@@ -9,9 +9,10 @@ const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 const typescriptParser = require('@typescript-eslint/parser');
 const importPlugin = require('eslint-plugin-import');
 const prettierConfig = require('eslint-config-prettier');
-const globals = require('globals');
 
-module.exports = [
+module.exports = async () => {
+  const globals = await import('globals');
+  return [
   {
     ignores: ['**/__generated__/*.ts', '.eslintrc.js', 'dist', '/*.*', 'node_modules/**', 'build/**', 'coverage/**'],
   },
@@ -28,9 +29,9 @@ module.exports = [
         project: './tsconfig.json',
       },
       globals: {
-        ...globals.node,
-        ...globals.jest,
-        ...globals.es2021,
+        ...globals.default.node,
+        ...globals.default.jest,
+        ...globals.default.es2021,
       },
     },
     plugins: {
@@ -76,4 +77,5 @@ module.exports = [
       },
     },
   },
-];
+  ];
+};

@@ -1,2 +1,26 @@
+#!/usr/bin/env sh
+# Change to git root directory
+cd "$(git rev-parse --show-toplevel)" || exit 1
 
+# Source nvm if available (for WSL/Linux environments)
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  . "$HOME/.nvm/nvm.sh"
+fi
+
+# Also try to add nvm node to PATH directly as fallback
+if [ -d "$HOME/.nvm/versions/node" ]; then
+  # Get the default or latest node version
+  NODE_VERSION=$(ls -1 "$HOME/.nvm/versions/node" 2>/dev/null | sort -V | tail -1)
+  if [ -n "$NODE_VERSION" ] && [ -d "$HOME/.nvm/versions/node/$NODE_VERSION/bin" ]; then
+    export PATH="$HOME/.nvm/versions/node/$NODE_VERSION/bin:$PATH"
+  fi
+fi
+
+# Verify node is available
+if ! command -v node >/dev/null 2>&1; then
+  echo "Error: node not found. Please ensure Node.js is installed and in PATH."
+  exit 1
+fi
+
+# Run lint-staged
 npx lint-staged
