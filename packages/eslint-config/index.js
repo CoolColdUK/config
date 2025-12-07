@@ -25,7 +25,6 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json', //required for "type-aware linting"
   },
-  ignorePatterns: ['**/__generated__/*.ts'],
   rules: {
     'import/prefer-default-export': 'off',
     'no-console': 'warn',
@@ -43,5 +42,5 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['.eslintrc.js', 'dist', '/*.*'],
+  ignorePatterns: ['**/__generated__/*.ts', '.eslintrc.js', 'dist', '/*.*'],
 };
