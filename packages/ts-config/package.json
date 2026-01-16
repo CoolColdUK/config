@@ -13,7 +13,7 @@
     "pack": "npm pack --pack-destination=../"
   },
   "dependencies": {
-    "@types/node": "^22.19.1",
+    "@types/node": "^22.19.7",
     "ts-node": "^10.9.2",
     "typescript": "5.8.3"
   }
