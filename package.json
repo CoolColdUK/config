@@ -7,6 +7,10 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "clean": "npm run clean:dist && npm run clean:lock && npm run clean:module",
+    "clean:dist": "lerna run clean:dist",
+    "clean:lock": "find . -name 'package-lock.json' -type f -prune -exec rm -rf '{}' +",
+    "clean:node": "lerna run clean:node",
     "pack": "lerna run pack",
     "prepare": "husky",
     "release:major": "lerna version major -y",

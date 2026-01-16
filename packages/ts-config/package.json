@@ -9,6 +9,8 @@
     "README.md"
   ],
   "scripts": {
+    "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "clean:node": "rm -rf node_module",
     "lint": "exit 0",
     "pack": "npm pack --pack-destination=../"
   },
