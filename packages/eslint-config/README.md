@@ -1,34 +1,34 @@
-# eslint-config for nodejs in typescript
+# @coolcolduk/eslint-config
 
-This is ESLint v9 flat config for Node.js projects. It has the latest version of packages required so you only need to add one dependency instead of multiple eslint dependencies.
+ESLint v9 flat config for Node.js and TypeScript projects. Single dependency; includes TypeScript parser, import resolver, and Prettier integration (Airbnb-style base).
 
 ## Usage
 
-**Important:** ESLint v9 uses flat config format and no longer supports `package.json` `eslintConfig` field.
+ESLint v9 uses the flat config format. The `package.json` `eslintConfig` field is not supported.
 
-Create an `eslint.config.js` file in your project root:
+Create `eslint.config.js` in your project root:
 
 ```js
 import baseConfig from '@coolcolduk/eslint-config';
 
 export default [
   ...baseConfig,
-  // Add your project-specific overrides here if needed
+  // Add project-specific overrides here
 ];
 ```
 
-Or if you're using CommonJS (legacy):
+CommonJS (legacy):
 
 ```js
 const baseConfig = require('@coolcolduk/eslint-config');
 
 module.exports = [
   ...baseConfig,
-  // Add your project-specific overrides here if needed
+  // Add project-specific overrides here
 ];
 ```
 
-Then add to your `package.json`:
+Add to `package.json`:
 
 ```json
 {
@@ -44,7 +44,7 @@ Then add to your `package.json`:
 
 ## Features
 
-- Based on Airbnb TypeScript style
-- Prettier integration
-- TypeScript support
-- Import resolution with TypeScript paths
+- Airbnb-style TypeScript rules
+- Prettier integration (no conflicting rules)
+- TypeScript support and import resolver
+- Ignores: `dist`, `node_modules`, `coverage`, `build`, `__generated__`

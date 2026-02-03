@@ -1,18 +1,24 @@
-# jest-config for in typescript (include ts-jest)
+# @coolcolduk/jest-config
 
-this is jest config for typescript. It has the latest version of packages required so you only need to add one dependency instead of multiple dependencies.
+Jest preset for TypeScript with ts-jest and ESM support. Single dependency for consistent test setup across projects.
 
-The `*.test.ts` files are unit tests, while `*.spec.ts` are integration tests
+## Conventions
+
+- `*.test.ts` — unit tests
+- `*.spec.ts` — integration tests
+
+You can split scripts by using different Jest configs or `--testPathPattern`.
 
 ## Usage
 
+Add to `package.json`:
+
 ```json
 {
-  // various content in package.json
   "scripts": {
     "test": "jest",
-    "test:int": "jest --testMatch **/*.spec.ts",
-    "test:unit": "jest --testMatch **/*.test.ts"
+    "test:unit": "jest --testPathPattern=\\.test\\.ts$",
+    "test:int": "jest --testPathPattern=\\.spec\\.ts$"
   },
   "devDependencies": {
     "@coolcolduk/jest-config": "latest"
@@ -20,10 +26,19 @@ The `*.test.ts` files are unit tests, while `*.spec.ts` are integration tests
   "jest": {
     "preset": "@coolcolduk/jest-config",
     "rootDir": "./src",
-    // this is optional, and can override with other stuff
-    "setupFiles": [
-      "<rootDir>/setupTests.ts"
-    ]
+    "testMatch": ["**/*.test.ts", "**/*.test.tsx"],
+    "setupFiles": ["<rootDir>/setupTests.ts"]
   }
 }
 ```
+
+Override any preset option (e.g. `rootDir`, `testMatch`, `setupFiles`) in your project’s `jest` block as needed.
+
+## Preset behaviour
+
+- **ts-jest** with ESM
+- **testEnvironment:** `node`
+- **collectCoverage:** `true`, output in `coverage/`
+- **passWithNoTests:** `true`
+- **moduleDirectories:** `['node_modules', 'src']`
+- **modulePathIgnorePatterns:** `['<rootDir>/endpoints']`

@@ -1,34 +1,34 @@
-# eslint-config-react for react projects in typescript
+# @coolcolduk/eslint-config-react
 
-This is ESLint v9 flat config for React projects. It has the latest version of packages required so you only need to add one dependency instead of multiple eslint dependencies.
+ESLint v9 flat config for React and TypeScript projects. Single dependency; includes React, React Hooks, JSX A11y, TypeScript, and Prettier integration (Airbnb-style base).
 
 ## Usage
 
-**Important:** ESLint v9 uses flat config format and no longer supports `package.json` `eslintConfig` field.
+ESLint v9 uses the flat config format. The `package.json` `eslintConfig` field is not supported.
 
-Create an `eslint.config.js` file in your project root:
+Create `eslint.config.js` in your project root:
 
 ```js
 import reactConfig from '@coolcolduk/eslint-config-react';
 
 export default [
   ...reactConfig,
-  // Add your project-specific overrides here if needed
+  // Add project-specific overrides here
 ];
 ```
 
-Or if you're using CommonJS (legacy):
+CommonJS (legacy):
 
 ```js
 const reactConfig = require('@coolcolduk/eslint-config-react');
 
 module.exports = [
   ...reactConfig,
-  // Add your project-specific overrides here if needed
+  // Add project-specific overrides here
 ];
 ```
 
-Then add to your `package.json`:
+Add to `package.json`:
 
 ```json
 {
@@ -44,9 +44,9 @@ Then add to your `package.json`:
 
 ## Features
 
-- Based on Airbnb TypeScript style
-- React and React Hooks support
+- Airbnb-style TypeScript rules
+- React and React Hooks rules
 - JSX A11y accessibility rules
-- Prettier integration
-- TypeScript support
-- Import resolution with TypeScript paths
+- Prettier integration (no conflicting rules)
+- TypeScript support and import resolver
+- Ignores: `dist`, `node_modules`, `coverage`, `build`

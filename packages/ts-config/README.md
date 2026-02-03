@@ -1,12 +1,13 @@
-# ts-config for in typescript
+# @coolcolduk/ts-config
 
-this is ts config for typescript. the typescript version is at `5.1.6` for compatability reasons. contains @types/node@18 and ts-node
+Shared TypeScript base config for strict TypeScript projects. Single dependency; includes TypeScript, `ts-node`, and `@types/node`.
 
 ## Usage
 
+Create or update `tsconfig.json` in your project:
+
 ```json
 {
-  // tsconfig.json
   "extends": "@coolcolduk/ts-config",
   "compilerOptions": {
     "rootDir": "src",
@@ -14,7 +15,16 @@ this is ts config for typescript. the typescript version is at `5.1.6` for compa
     "baseUrl": "."
   },
   "include": ["src/**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist", "node_modules"]
 }
-
 ```
+
+Override any `compilerOptions` or `include`/`exclude` as needed for your app.
+
+## Included
+
+- **TypeScript** (version provided by the package)
+- **ts-node**
+- **@types/node**
+
+The preset uses strict options, ESNext modules, `moduleResolution: "bundler"`, and `target: "ES2022"`.
