@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.8.1",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.5",
     "prettier-package-json": "^2.8.0"
   }
 }
