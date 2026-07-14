@@ -2,7 +2,6 @@
   "compilerOptions": {
     "incremental": true,
     "outDir": "dist",
-    "baseUrl": ".",
     "rootDir": ".",
     "moduleResolution": "bundler",
     "module": "ESNext",
@@ -12,7 +11,8 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "esnext"],
+    "types": ["node"],
     "esModuleInterop": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
